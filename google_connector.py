@@ -13,6 +13,9 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 SAMPLE_SPREADSHEET_ID = '1_yT_dJ06xqF4YDSKaC5E_gUgnbvIGfuCpKzQSPCRoNw'
 SAMPLE_RANGE_NAME = 'User Data'
 
+# File path to creds here
+file_path = ''
+
 def gather_data():
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
@@ -29,7 +32,7 @@ def gather_data():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'C:\\Users\\crepk\\OneDrive\\Documents\\Python\\Email_Creation\\credentials.json', SCOPES)
+                file_path, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
